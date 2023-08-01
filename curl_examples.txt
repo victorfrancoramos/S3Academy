@@ -1,1 +1,4 @@
 curl -k -X GET "https://cluster1.demo.netapp.com/api/svm/svms?return_records=true&return_timeout=15" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46TmV0YXBwMSE="
+
+Create a volume:
+curl -k -X POST "https://cluster1.demo.netapp.com/api/storage/volumes?return_timeout=0&return_records=false" -H  "accept: application/json" -H  "authorization: Basic YWRtaW46TmV0YXBwMSE=" -H  "Content-Type: application/json" -d "{  \"aggregates\": [    {      \"name\": \"cluster1_01_SSD_1\"          }  ],  \"name\": \"api_vol2\",  \"size\": \"2gb\",  \"svm\": {    \"name\": \"svm1_cluster1\"  }}"
