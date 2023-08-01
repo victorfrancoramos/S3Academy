@@ -1,4 +1,4 @@
-vserver-get import requests
+import requests
 import json
 
 url = "https://cluster1.demo.netapp.com/api/storage/volumes?return_timeout=0&return_records=false"
@@ -9,7 +9,7 @@ payload = json.dumps({
       "name": "cluster1_01_SSD_1"
     }
   ],
-  "name": "{{vol_name}}",
+  "name": "api_vol5",
   "size": "200mb",
   "svm": {
     "name": "svm1_cluster1"
@@ -20,6 +20,6 @@ headers = {
   'Authorization': 'Basic YWRtaW46TmV0YXBwMSE='
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.request("POST", url, headers=headers, data=payload, verify=False)
 
 print(response.text)
